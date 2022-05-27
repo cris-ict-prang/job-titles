@@ -37,7 +37,7 @@ employees = [
         'first_name': 'Jill',
         'last_name': 'Lancaster',
         'age': 46,
-        'gender_code': 'F'  
+        'gender_code': 'F'
     }
 ]
 
@@ -54,6 +54,34 @@ def employee_data(first_name):
 ### END - DO NOT EDIT ###
 
 ### EDIT HERE ###
+def job_title(data): 
+    '''accepts a dictionary and returns a string employee job title'''
+
+    first_name = data['first_name']
+    last_name = data['last_name']
+
+    if first_name in engineers and first_name in managers:
+        job_title = "Engineering Manager"
+    elif first_name in engineers:
+        job_title = "Engineer"
+    elif first_name in managers:
+        job_title = "Manager"
+    else:
+        job_title = "Employee"
+
+    if data['age'] < 25:
+        seniority = "Jr. "
+    elif data ['age'] >= 35:
+        seniority = "Sr. "    
+    else:
+        seniority = ""
+
+    if data['gender_code'] == 'M':
+        gender_title = "Mr."
+    else:
+        gender_title = "Ms."
+
+    return f"{gender_title} {first_name} {last_name}, {seniority}{job_title}"
 
 # check for proper command line arguments or print usage and exit
 if len(sys.argv) != 2:
@@ -65,3 +93,19 @@ first_name = sys.argv[1]
 
 # get the employee dictionary for this first_name
 data = employee_data(first_name)
+
+# check that data is vavid or print error message and exit
+if not data:
+    print(f"no such employee: {first_name}", file=sys.stderr)
+    sys.exit(1)
+
+output = job_title(data)
+print(output)
+
+# TODO Steps: 
+# 1. check that data is vavid or print error message and exit
+# 2. create a 'job-titles()' function that
+#    * accepts a dictionary as an argument
+#    * returns a string employee job title, for example:
+#    * "Mr. John Smith, Jr. Employee"
+# 3. Print the string returned by 'job_title()'
