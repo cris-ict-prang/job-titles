@@ -1,6 +1,7 @@
-# Name, Grade
-# Assignment
-# Description
+# Prang, G.8
+# Booleans & Conditionals - Job Titles
+# This program will accept a predefined employee's first name as a command line argument and print their employee title as: gender title, full name, and job title of the employee in the form: "{gender_title} {full_name}, {seniority} {job_title}"
+
 
 ### START - DO NOT EDIT ###
 import sys
@@ -36,7 +37,7 @@ employees = [
         'first_name': 'Jill',
         'last_name': 'Lancaster',
         'age': 46,
-        'gender_code': 'F'
+        'gender_code': 'F'  
     }
 ]
 
